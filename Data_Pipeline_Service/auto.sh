@@ -30,7 +30,7 @@ function usage()
     return 0
 }
 
-function parseArgs()                                                            
+function parseArgs() 
 {
     while [ $# -gt 0 ];
     do
@@ -45,7 +45,7 @@ function parseArgs()
             eval ARG_$optname=$optarg_abs_path
         else
             eval ARG_$optname=$optarg
-        fi  
+        fi
 
         shift
     done
@@ -97,7 +97,7 @@ function do_start()
 	fi
 	[ $? -ne 0 ] && echo -e "\e[1;31m icegridadmin failed!\e[0m" \
 	&& return 1
-	
+
 	./client >>${CLIENT_LOG_FILE} 2>&1 &
 
     return 0
@@ -108,7 +108,7 @@ function do_stop()
     #parseArgs $@
 	echo -e "\e[1;31m [Stop services ....]\e[0m"
 	sleep 2
-	
+
 	ICENODE_PID=`ps -ef | grep [i]cegridnode |awk -F' ' '{print $2}'`
 	kill -9 ${ICENODE_PID} >/dev/null 2>&1
 
