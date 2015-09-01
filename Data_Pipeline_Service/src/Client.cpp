@@ -147,7 +147,7 @@ void ConsumerTask(int argc, char* argv[])
 		// 2. send event
 		std::string sendEventUrl = SEND_EVENT;
 		std::string msg = base64Decode(parseMsg(jsonMsg));
-		sendEventUrl.append(base64Encode(msg));
+		sendEventUrl.append(base64Encode(handle(msg)));
 		std::cout << sendEventUrl << std::endl;
 
 		std::string sendEventResp;

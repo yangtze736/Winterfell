@@ -52,8 +52,12 @@ std::string handle(const std::string &strJson)
 	std::string obj = value["objname"].asString();
 	std::string mode = value["objmode"].asString();
 	std::string tab = value["table"].asString();
-	std::string op = value["operate"].asString();
+	//std::string op = value["operate"].asString();
+	std::string op = "update";
+	std::string objToken = value["objtoken"].asString();
 	std::string len = value["objlength"].asString();
+	std::string objPath = value["objpath"].asString();
+
 
 	// generate json
 	Json::Value root;
@@ -63,7 +67,9 @@ std::string handle(const std::string &strJson)
 	root["objmode"] = mode;
 	root["table"] = tab;
 	root["operate"] = op;
+	root["objtoken"] = objToken;
 	root["objlength"] = len;
+	root["objpath"] = objPath;
 
 	return root.toStyledString();
 }
